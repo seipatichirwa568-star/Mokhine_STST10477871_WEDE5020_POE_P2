@@ -1,0 +1,272 @@
+/* ==========================================================================
+   1. BASE STYLES & CSS RESET
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #003366;
+    --secondary-color: #008080;
+    --accent-color: #d9534f;
+    --bg-light: #f4f7f6;
+    --text-dark: #2c3e50;
+    --text-muted: #6c757d;
+    --white: #ffffff;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+html {
+    font-size: 100%; /* 16px default */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & ELEMENTS
+   ========================================================================== */
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; margin-top: 1rem; }
+h3 { font-size: 1.2rem; }
+
+p, ul, ol {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+/* Links & Pseudo-classes */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover, a:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--accent-color);
+}
+
+/* Buttons */
+button, .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+button:hover, button:focus, .btn:hover, .btn:focus {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-decoration: none;
+    box-shadow: var(--shadow);
+}
+
+/* ==========================================================================
+   3. LAYOUT & CONTAINER STRUCTURE
+   ========================================================================== */
+main {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+section, article {
+    background: var(--white);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+nav a:hover, nav a:focus {
+    background-color: var(--bg-light);
+    text-decoration: none;
+}
+
+/* Form Styling */
+form p {
+    margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--secondary-color);
+    border-color: transparent;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================================================== */
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Gallery Grid */
+main section img {
+    display: inline-block;
+    margin: 0.5rem;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+}
+
+/* Tablet Breakpoint (max-width: 1024px) */
+@media (max-width: 1024px) {
+    html {
+        font-size: 93.75%; /* 15px */
+    }
+
+    main {
+        width: 95%;
+        padding: 0.5rem;
+    }
+}
+
+/* Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%; /* 14px */
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        background-color: var(--bg-light);
+    }
+
+    button, .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Full-Width Banner Layout */
+.hero {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 6rem 2rem;
+    
+    /* Full background image cover with dark gradient for readable text */
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                url('../images/Apex.jpeg') no-repeat center center / cover;
+    
+    color: var(--white);
+    text-align: center;
+}
+
+.hero h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.15rem;
+}
